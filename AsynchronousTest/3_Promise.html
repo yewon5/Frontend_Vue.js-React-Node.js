@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //callback을 만들지 않고 Promise, then 사용
+        const a = () => {
+            return new Promise((resolve)=>{
+                setTimeout(() => {
+                    console.log(1)
+                    resolve();
+                }, 1000);
+            }); // Promise 객체 생성하고 a()에게 넘겨주기. resolve는 b()호출하는 것.
+        }
+        const b = () => {
+            return new Promise((resolve)=>{
+                setTimeout(() => {
+                    console.log(2)
+                    resolve();
+                }, 1000);
+            });
+            
+        }
+        const c = () => {
+            return new Promise((resolve)=>{
+                setTimeout(() => {
+                    console.log(3)
+                    resolve();
+                }, 1000);
+            });
+        }
+        const d = () => {console.log(4)}
+
+        /*
+        a().then(()=>{
+            b().then(()=>{
+                c().then(()=>{
+                    d()
+                })
+            })
+        })
+        // a()는 Promise()객체를 리턴 받음. 그래서 then() 사용 가능. then에서 b()호출. 
+        // then에서 넘어가는 b()의 인자값을 resolve가 받음
+        
+
+        
+        // Promise객체 사용하면 then 메서드 사용 가능
+        a() .then(()=>{return b()})
+            .then(()=>{return c()})
+            .then(()=>{d()});
+        
+
+        // then + 화살표함수 방식
+        a() .then(()=>b())
+            .then(()=>c())
+            .then(()=>d())
+            .then(()=>{console.log('done')});
+        
+
+        // 더 간단하게 축소
+        a() .then(b)
+            .then(c)
+            .then(d)
+            .then(()=>{console.log('done')});
+        */
+
+
+        const getMovies = movieName => {
+            return new Promise(resolve=>{
+                fetch(`https://www.omdbapi.com/?apikey=7035c60c&s=${movieName}`)
+                    .then((res)=>{return res.json()}) //받아온 문자열을 객체화 해줘야 key, 값을 분리시킬 수 있음
+                    .then((res)=>{
+                        console.log(res)
+                        resolve();
+                    })
+            });
+        };
+        
+        getMovies('frozen')
+            .then(()=>{
+                console.log("겨울 왕국")
+                return getMovies("avengers");
+            })
+            .then(()=>{
+                console.log("어벤저스")
+                return getMovies("avatar");
+            })
+            .then( ()=>{console.log("아바타")})
+    </script>
+</body>
+</html>

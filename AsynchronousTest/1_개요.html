@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Hello World!</h1>
+    </div>
+
+    <script>
+        /*
+        //동기식, 순차적으로 출력됨
+        console.log(1);
+        console.log(2);
+        console.log(3); 
+
+        //비동기식
+        console.log(1);
+        setTimeout(() => {console.log(2)}, 1000); //화살표함수, 람다함수(자바), 이름 없는 함수, 콜백함수 
+        console.log(3);
+
+        const El =  document.querySelector('h1');
+        El.addEventListener('click', () => {
+            console.log("Clicked!") //콜백 함수, 시스템에 의해서 호출됨. 사용자는 클릭만할뿐 시스템이 호출하는 것임
+        });
+        console.log("Hello World!");
+        //코드 순서로봤을때 Clicked → Hello World가 출력될 것 같지만
+        //클릭은 클릭해야만 출력되기때문에 비동기식 코드의 예시이다.
+        */
+
+        //비동기식 숫자 → 영화정보
+        fetch('https://www.omdbapi.com/?apikey=7035c60c&s=frozen') //영화 정보 API 주소(서버)
+        .then(res=> res.json()) //.then((res)=>{return res.json()})
+        .then(res=> console.log(res)); //.then((res)=>{console.log(res)});
+        //첫번째 res에는 서버가 보낸 데이터가 담겨있다. (row데이터, 문자열)
+        //res.json() 서버의 데이터를 자바스크립트 객체로 만들고 두번째 res에 리턴.
+        //두번째 res는 첫번째의 문자열 res를 자바스크립트 객체로 바꾼 데이터가 담겨있다.
+        //비동기식이라서 1,2,3이 출력되고 영화정보가 나오는데, 만약 동기식이였다면 영화정보를 받은 후에(받을때까지 기다린뒤) 1,2,3이 출력된다.
+
+        console.log(1);
+        console.log(2);
+        console.log(3); 
+ 
+        
+        //비동기식 영화정보 → 숫자
+        fetch('https://www.omdbapi.com/?apikey=7035c60c&s=frozen') //영화 정보 API 주소(서버)
+        .then(res=> res.json())
+        .then(res=> {
+            console.log(res)
+            console.log(1);
+            console.log(2);
+            console.log(3);
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+            - promise객체를 생성하는 것보다 좀 더 직관적이다.
+            - await는 promise()를 리턴하는 함수에서만 사용할 수 있다.
+            - aawit는 async()내에서만 사용할 수 있다.
+        */
+
+        /*
+        const a = () => {
+            return new Promise((resolve)=>{
+                setTimeout(() => {
+                    console.log(1)
+                    resolve();
+                }, 1000);
+            });
+        }
+
+        const b = () => console.log(2)
+        
+        // a().then(()=>b());
+
+        const wrap = async () => {
+            await a(); // a함수 끝날때까지 기다리기
+            b();
+        }
+
+        wrap();
+        */
+
+        const getMovies = movieName => {
+            return new Promise(resolve=>{
+                fetch(`https://www.omdbapi.com/?apikey=7035c60c&s=${movieName}`)
+                    .then((res)=>{return res.json()}) //받아온 문자열을 객체화 해줘야 key, 값을 분리시킬 수 있음
+                    .then((res)=>{
+                        console.log(res)
+                        resolve();
+                    })
+            });
+        };
+
+        const wrap = async () => {
+            await getMovies('frozen');
+            console.log("겨울 왕국");
+            await getMovies("avengers");
+            console.log("어벤저스")
+            await getMovies("avatar")
+            console.log("아바타")
+        }
+        wrap(); // async로 묶어주고 변수 선언해서 호출하는 것 잊지말기
+
+    </script>
+</body>
+</html>

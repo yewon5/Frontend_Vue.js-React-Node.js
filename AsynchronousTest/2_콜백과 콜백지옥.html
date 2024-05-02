@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+        //동기식
+        const a = () => {console.log(1)}
+        const b = () => {console.log(2)}
+
+        a()
+        b() //1,2   
+
+
+        //비동기식
+        const a = () => {
+            setTimeout(() => {console.log(1)}, 1000);
+            //() => {console.log(1)}가 콜백함수, 비동기 코드로 작성하기 위한 하나의 방법
+        }
+        const b = () => {console.log(2)}
+
+        a()
+        b() //2,1
+
+
+        //비동기식에서 순서 제어. 콜백지옥
+        const a = (callback) => {
+            setTimeout(() => {
+                console.log(1)
+                // 여기서 b()가 호출돼야 순서대로 1,2가 나올 수 있다.
+                callback();
+            }, 1000);
+        }
+        const b = (callback) => {
+            setTimeout(() => {
+                console.log(2)
+                // 여기서 c()가 호출돼야 함
+                callback();
+            }, 1000);
+        };
+        const c = (callback) => {
+            setTimeout(() => {
+                console.log(3)
+                callback();
+            }, 1000);    
+        };
+        const d = () => {console.log(4)};
+
+        a(()=>{
+            b(()=>{
+                c(()=>{
+                    d()
+                })
+            })
+        }); 
+        // a(()=>{})안에 인자값으로 b()의 주소를 callback에 넘겨준다. b를 콜백함수로 만드는 것.
+        
+
+        //영화 검색 기능. 비동기방식이라 실행순서가 매번 다름
+        const getMovies = (movieName, callback) => {
+            fetch(`https://www.omdbapi.com/?apikey=7035c60c&s=${movieName}`)
+                .then((res)=>{return res.json()}) //받아온 문자열을 객체화 해줘야 key, 값을 분리시킬 수 있음
+                .then((res)=>{
+                    console.log(res)
+                    callback();
+                })
+        };
+        
+        getMovies('frozen', ()=>{console.log("겨울 왕국")});
+        getMovies('avangers', ()=>{console.log("어벤저스")});
+        getMovies('avatar', ()=>{console.log("아바타")}); 
+        //
+        */
+
+        //영화 검색 기능. 순서 제어
+        const getMovies = (movieName, callback) => {
+            fetch(`https://www.omdbapi.com/?apikey=7035c60c&s=${movieName}`)
+                .then((res)=>{return res.json()})
+                .then((res)=>{
+                    console.log(res)
+                    callback();
+                })
+        };
+        
+        getMovies('frozen', ()=>{
+            console.log("겨울 왕국")
+            getMovies('avengers', ()=>{
+                console.log("어벤저스")
+                getMovies('avatar', ()=>{
+                    console.log("아바타")
+                }); 
+            });
+        });
+
+
+    </script>
+</body>
+</html>
