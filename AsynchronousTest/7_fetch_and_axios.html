@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- axios 설치 CDN 방식-->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</head>
+<body>
+    <div id="result"></div>
+    <script>
+        /*
+        // XMLHttpRequest ajax 옛날 방식
+        var httpRequest = new XMLHttpRequest();
+        httpRequest.onreadystatechange = function() { // function()대신 화살표함수 써도 됨
+            if(httpRequest.readyState == 4 && httpRequest.status == 200){ // 4는 "요청이 완료되었습니다" 200은 "성공"
+                document.getElementById("result").innerHTML = httpRequest.responseText;
+            }
+        } 
+        httpRequest.open("GET", "https://jsonplaceholder.typicode.com/users/2", true) 
+        //사용자정보중 "id": 1을 어떻게 할 것인지는 요청방식에 따름. get조회 post추가 put수정 delete삭제
+        httpRequest.send()
+        
+
+        // fetch 방식
+        fetch("https://jsonplaceholder.typicode.com/users/4")
+            .then((response)=>{ return response.text() }) // 서버로부터 받은 데이터 (response)에 저장
+            .then((text)=>{ document.getElementById("result").innerHTML = text })
+        */
+
+        // axios 방식 (복잡한 데이터 처리, 보안성)
+        axios("https://jsonplaceholder.typicode.com/users/3")
+            .then((response)=>{ return JSON.stringify(response) }) //axios는 객체라서 문자열로 바꿔줘야함
+            .then((text)=>{ document.getElementById("result").innerHTML = text })
+    </script>
+</body>
+</html>

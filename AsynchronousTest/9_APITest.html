@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- axios 설치 CDN 방식-->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</head>
+<body>
+    <script>
+        /*
+        // "GET" 서버의 데이터 조희 
+        fetch("http://localhost:8080/data/test1", {method:"GET"})
+            .then((response)=>{ return response.json() }) // 넘어온게 문자열인데 파싱하기 힘드니까 json객체로 바꾼다.
+            .then((data)=>{ console.log(data) })
+        
+        axios("http://localhost:8080/data/test1", {method:"GET"})
+            .then((response)=>{ return response })
+            .then((data)=>{ console.log(data) })    
+        */    
+
+        /*
+        // 내가 만든 API 서버를 이용해서 데이터 주고 받기
+        fetch("http://localhost:8080/data/users")
+            .then((response)=>{ 
+                if(!response.ok){
+                    throw new Error("네트워크 오류 발생");
+                }
+                return response.json();
+            })
+            .then((data)=>{ console.log("받은 사용자 정보 : ", data) })
+            .catch((error)=>{ console.log("데이터를 가져오는 도중 오류 발생", error)})
+        */    
+
+        axios("http://localhost:8080/data/users", {method:"GET"})
+            .then((response)=>{ 
+                if(response.status !== 200){
+                    throw new Error("네트워크 오류 발생");
+                }
+                return response;
+            })
+            .then((data)=>{ console.log("받은 사용자 정보 : ", data) })   
+            .catch((error)=>{ console.log("데이터를 가져오는 도중 오류 발생", error)})
+    </script>
+</body>
+</html>

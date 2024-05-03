@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- axios 설치 CDN 방식-->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</head>
+<body>
+    <script>
+        /*
+        // "GET" 조희 
+        fetch("https://jsonplaceholder.typicode.com/posts/1", {method:"GET"})
+            .then((response)=>{ return response.json() }) // 넘어온게 문자열인데 파싱하기 힘드니까 json객체로 바꾼다.
+            .then((data)=>{ console.log(data) })
+        
+        // "GET" 조희 
+        axios("https://jsonplaceholder.typicode.com/posts/1", {method:"GET"})
+            .then((response)=>{ return response }) // axios는 객체이기 때문에 바로 리턴하면 된다.
+            .then((data)=>{ console.log(data) })
+        */
+
+        
+        /*
+        // "POST" 추가
+        fetch("https://jsonplaceholder.typicode.com/posts", {
+                method:"POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({title:'Test', body:'I am Tesiting', userId:11})     
+            })
+            .then((response)=>{ return response.json()})
+            .then((data)=>{ console.log(data)})
+        
+        // "POST" 추가
+        axios("https://jsonplaceholder.typicode.com/posts", {
+                method:"POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({title:'Test', body:'I am Tesiting', userId:11})     
+            })
+            .then((response)=>{ return response}) 
+            .then((data)=>{ console.log(data)})   
+        */
+
+        /*
+        // "PUT" 전체 수정
+        fetch("https://jsonplaceholder.typicode.com/posts/1", {
+                method:"PUT",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({title:'Test'}) // body title userId의 키값에 title:'Test'를 덮어씀
+            })
+            .then((response)=>{ return response.json()})
+            .then((data)=>{ console.log(data)})
+
+        // "PUT" 전체 수정 axios 방식
+        */
+
+        // "PATCH" 부분 수정
+        fetch("https://jsonplaceholder.typicode.com/posts/1", {
+                method:"PATCH",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({title:'Test'})
+            })
+            .then((response)=>{ return response.json()})
+            .then((data)=>{ console.log(data)})
+
+
+        // "DELETE" 삭제
+        fetch("https://jsonplaceholder.typicode.com/posts/1", {
+                method:"DELETE",
+            })
+            .then((response)=>{ return response.json()})
+            .then((data)=>{ console.log(data)})
+    </script>
+</body>
+</html>

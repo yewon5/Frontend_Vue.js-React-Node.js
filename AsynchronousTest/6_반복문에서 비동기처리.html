@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //영화 정보를 다양하게 검색하기 위해 반복문
+        const getMovies = movieName => {
+            return new Promise ((resolve) => {
+                fetch(`https://www.omdbapi.com/?apikey=7035c60c&s=${movieName}`)
+                    .then((res)=>{return res.json})
+                    .then((res)=>{resolve(res)})
+            });
+        }
+
+        const titles = ['frozen', 'avengers', 'avatar'];
+
+        /*
+            동기식. 순서 고정. 타이틀 개수 만큼 반복
+            서버로부터 응답을 받을때까지 아무 작업을 못해서 비동기처리가 필요함
+        titles.forEach((title)=>{
+            const movies = getMovies(title);
+            console.log(title, movies);
+        })
+        */
+
+        /*
+            비동기식. 순서 랜덤. forEach는 순서 제어가 안됨..
+            비동기식을 사용하면서 순서 제어하고 싶으면 for문 사용
+        titles.forEach(async (title)=>{
+            const movies = await getMovies(title);
+            console.log(title, movies);
+        }) 
+        */
+
+        (async () => {
+            for(const title of titles) { // 자바스크립트 for...of Java for(변수 : 배열)
+                const movies = await getMovies(title);
+                console.log(title, movies);
+            }
+        })();
+    </script>
+</body>
+</html>
