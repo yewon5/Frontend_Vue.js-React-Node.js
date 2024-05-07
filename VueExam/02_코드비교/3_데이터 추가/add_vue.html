@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!-- vue CDN 설치 -->
+    <script src="../../vue.global.js"></script>
+</head>
+<body>
+    <div id="app">
+        <div class="list">
+            <ul v-for="user in list">
+                <li>name = {{user.name}}</li>
+                <li>age = {{user.age}}</li>
+                <li>address = {{user.address}}</li>
+            </ul>
+        </div>
+        <div>
+            <p>데이터 추가</p>
+            <p>
+                <span>name : <input type="text" class="user-name" v-model="newUser.name"></span><br>
+                <span>age : <input type="text" class="user-age" v-model="newUser.age"></span><br>
+                <span>address : <input type="text" class="user-address" v-model="newUser.address"></span>
+            </p>
+            <p>
+                <button class="btn-add-user" @click="addUser()"> 추가</button> <!-- v-on:click="addUser()" 간단하게-->
+            </p>
+        </div>
+    </div>
+
+    <script>
+        const data = {
+            list: [{
+                name: "user_1",
+                age: 10,
+                address: "address_1"
+            }, {
+                name: "user_2",
+                age: 20,
+                address: "address_2"
+            }, {
+                name: "user_3",
+                age: 30,
+                address: "address_3"
+            }],
+            newUser : { name: "", age: "", address: "" }
+        }
+
+        const { createApp } = Vue;
+        createApp({
+            data(){ 
+                return data; // data라는 값자체를 전달한 것
+            },
+            methods : {
+                addUser(){ 
+                    this.list.push({
+                        name : this.newUser.name,
+                        age : this.newUser.age,
+                        address : this.newUser.address
+                    });
+
+                    // 입력칸 초기화
+                    this.newUser.name = "";
+                    this.newUser.age = "";
+                    this.newUser.address = ""; 
+                }
+            },
+        }).mount("#app");
+    </script>
+</body>
+</html>

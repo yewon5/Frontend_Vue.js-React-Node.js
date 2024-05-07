@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div id="app">
+        <div class="list"></div>
+        <div>
+            <p>데이터 추가</p>
+            <p>
+                <span>name:<input type="text" class="user-name"></span><br>
+                <span>age:<input type="text" class="user-age"></span><br>
+                <span>address:<input type="text" class="user-address"></span>
+            </p>
+            <p>
+                <button class="btn-add-user"> 추가</button>
+            </p>
+        </div>
+    </div>
+
+    <script>
+        const data = {
+            list: [{
+                name: "user_1",
+                age: 10,
+                address: "address_1"
+            }, {
+                name: "user_2",
+                age: 20,
+                address: "address_2"
+            }, {
+                name: "user_3",
+                age: 30,
+                address: "address_3"
+            }]
+        }
+
+        // Function to populate the initial user list
+        const populateUserList = () => {
+            const userList = document.querySelector("#app .list");
+            data.list.forEach(user => {
+                const ul = document.createElement("ul");
+                ul.innerHTML = `
+                    <li>name = ${user.name}</li>
+                    <li>age = ${user.age}</li>
+                    <li>address = ${user.address}</li>
+                `;
+                userList.appendChild(ul);
+            });
+        }
+
+        populateUserList();
+
+        // Event listener for the "추가" button
+        const btnAddUser = document.querySelector(".btn-add-user");
+        btnAddUser.addEventListener("click", () => {
+            const userNameInput = document.querySelector(".user-name");
+            const userAgeInput = document.querySelector(".user-age");
+            const userAddressInput = document.querySelector(".user-address");
+
+            const newUser = {
+                name: userNameInput.value,
+                age: userAgeInput.value,
+                address: userAddressInput.value
+            }
+
+            if (newUser.name && newUser.age && newUser.address) {
+                data.list.push(newUser);
+
+                const userList = document.querySelector("#app .list");
+                const ul = document.createElement("ul");
+                ul.innerHTML = `
+                    <li>name = ${newUser.name}</li>
+                    <li>age = ${newUser.age}</li>
+                    <li>address = ${newUser.address}</li>
+                `;
+                userList.appendChild(ul);
+
+                userNameInput.value = "";
+                userAgeInput.value = "";
+                userAddressInput.value = "";
+            }
+        });
+    </script>
+</body>
+</html>

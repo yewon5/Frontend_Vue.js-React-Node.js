@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+</head>
+<body>
+      <div id="app"></div>
+
+      <script>
+            var data = {
+                  list:[{
+                        name:"user_1",
+                        age:10,
+                        address:"address_1"
+                  },{
+                        name:"user_2",
+                        age:20,
+                        address:"address_2"
+                  },{
+                        name:"user_3",
+                        age:30,
+                        address:"address_3"
+                  }]
+            }
+
+            data.list.forEach((user)=>{
+                  let ul = `
+                        <ul>
+                              <li>name = ${user.name}</li>
+                              <li>name = ${user.age}</li>
+                              <li>name = ${user.address}</li>
+                        </ul>
+                  `;
+                  $("#app").append(ul);
+            });
+    </script>
+</body>
+</html>

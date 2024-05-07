@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- vue CDN 설치 -->
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+<body>
+    <div id="app1">
+        <h2>기본 구조</h2>
+        {{message}}
+    </div>
+
+    <div id="app2">
+        <h2>기본 구조</h2>
+        {{message}}
+    </div>
+    <script>
+        // createApp 함수를 사용하여 vue 객체를 변수로 만들면 다양한 작업도 가능하다.
+        const {createApp} = Vue
+
+        createApp({
+            data : function(){ 
+                return { message : "Hello Vue1~~" }
+            }
+        }).mount("#app1");
+
+        createApp({ 
+            data : function(){
+                return { message : "Hello Vue2~~" }
+            }
+        }).mount("#app2");
+    </script>
+</body>
+</html>

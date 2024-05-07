@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app"></div>
+
+    <script>
+        var data = {
+            list: [{
+                name: "user_1",
+                age: 10,
+                address: "address_1"
+            }, {
+                name: "user_2",
+                age: 20,
+                address: "address_2"
+            }, {
+                name: "user_3",
+                age: 30,
+                address: "address_3"
+            }]
+        }
+
+        // Create a function to generate the user list
+        function generateUserList(user) {
+            var ul = document.createElement("ul");
+            
+            var li1 = document.createElement("li");
+            li1.textContent = "name = " + user.name;
+            ul.appendChild(li1);
+
+            var li2 = document.createElement("li");
+            li2.textContent = "age = " + user.age;
+            ul.appendChild(li2);
+
+            var li3 = document.createElement("li");
+            li3.textContent = "address = " + user.address;
+            ul.appendChild(li3);
+
+            return ul;
+        }
+
+        // Append the user lists to the #app div
+        var app = document.getElementById("app");
+        data.list.forEach(function (user) {
+            var ul = generateUserList(user); // generateUserList(user); 태그 생성
+            app.appendChild(ul);
+        });
+    </script>
+</body>
+</html>

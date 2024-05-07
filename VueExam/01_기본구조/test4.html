@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- vue CDN 설치 -->
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+<body>
+    <h1>Life Cycle</h1>
+    <div>
+        <h2>기본 구조</h2>
+        <p id="app">
+            {{name}}, count={{count}}
+        </p>
+        
+    </div>
+    <script>
+        const {createApp} = Vue
+
+        createApp({
+            data(){ // 처리할 코드 작성
+                return { name : "Vue!", count:0 } // 3. 데이터 초기화 
+            },
+            setup(){
+                console.log("1. setup = ", this.name); // 1. 데이터가 생성되기 전 첫번째로 실행
+            },
+            beforeCreate(){
+                console.log("2. beforeCreate = ", this.name); // 2. 데이터가 생성되기 전 두번째로 실행
+            },
+            created(){
+                console.log("3. created = ", this.name); // 4. 데이터 초기화 후 실행
+                this.test()
+            },
+            beforeMount(){
+                console.log("4. beforeMount = ", this.name); // 5.
+            },
+            mounted(){
+                console.log("4. mounted = ", this.name); // 6.
+            },
+            methods : { // 원하는 함수를 만들 수 있다
+                test : function(){ // 데이터가 초기화된 후 함수를 호출해야하므로 created() 여기서 호출한다.
+                    setInterval(() => { this.count++ }, 1000);
+                }
+            }
+        }).mount("#app");
+    </script>
+</body>
+</html>

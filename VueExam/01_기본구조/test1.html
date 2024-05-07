@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- vue CDN 설치 -->
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+<body>
+    <div id="app">
+        <h2>기본 구조</h2>
+        <!-- vue에서 처리한 결과를 보여줄 위치. 데이터를 연결하는 기호 {{}} -->
+        {{message}}
+    </div>
+    <script>
+        /*
+        // 객체 생성 방법 1
+        // Vue.createApp은 한 번 호출하면 하나의 Vue 객체를 생성할 수 있기때문에 mount를 여러개할 수 없고 mount 말고 다른 작업을 할 수 없다.  
+        Vue.createApp({ // vue 객체 생성
+            data : function(){ // 처리할 코드 작성
+                return { message : "Hello Vue~~" }
+            }
+        }).mount("#app"); // html 연결 위치. class면 .으로 접근(class는 주로 css에 사용하고 중복가능성이 있기때문에 id를 사용한다.)
+        */
+
+        // 객체 생성 방법 2
+        // createApp 함수를 사용하여 vue 객체를 변수로 만들면 다양한 작업도 가능하다.
+        const {createApp} = Vue
+
+        createApp({ // vue 객체 생성
+            data : function(){ // 처리할 코드 작성
+                return { message : "Hello Vue2~~" }
+            }
+        }).mount("#app");
+    </script>
+</body>
+</html>

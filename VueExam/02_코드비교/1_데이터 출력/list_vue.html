@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- vue CDN 설치 -->
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+<body>
+    <div id="app">
+        <ul v-for="user in data.list"> <!-- 데이터(data)에서 배열을 변수(user)에 할당. js 배열 반복문 문법 in-->
+            <li>이름 = {{user.name}}</li>
+            <li>나이 = {{user.age}}</li>
+            <li>주소 = {{user.address}}</li>
+        </ul>
+    </div>
+    <script>
+        var data = { // data변수에 list라는 키값
+            list: [{
+                name: "user_1",
+                age: 10,
+                address: "address_1"
+            }, {
+                name: "user_2",
+                age: 20,
+                address: "address_2"
+            }, {
+                name: "user_3",
+                age: 30,
+                address: "address_3"
+            }]
+        }
+
+        const {createApp} = Vue
+
+        createApp({
+            data(){
+                return { data }
+            }
+        }).mount("#app");
+    </script>
+</body>
+</html>

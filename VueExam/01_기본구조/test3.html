@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- vue CDN 설치 -->
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <!-- jquery 라이브러리 -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
+</head>
+<body>
+    <!-- Vue -->
+    <div id="app">
+        <h2>기본 구조</h2>
+        {{message}}
+    </div>
+
+    <!-- JQuery -->
+    <div id="jq">
+        <h2>JQuery</h2>
+        <p class="sub1"></p>
+    </div>
+    <script>
+        const {createApp} = Vue
+
+        createApp({
+            data : function(){ 
+                return { message : "Hello Vue2~~" }
+            }
+        }).mount("#app");
+
+        
+        $(".sub1").html("Hello~~ JQuery~~") // document.querySelector = $()
+    </script>
+</body>
+</html>
