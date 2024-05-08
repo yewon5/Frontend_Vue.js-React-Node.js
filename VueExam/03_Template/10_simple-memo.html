@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+<body>
+    <h1>심플 메모장</h1>
+    <div id="app">
+        <div>
+            메모 입력 : <input type="text" v-model="newMemo"/>&nbsp;
+            <template v-if="">
+                <button v-on:click="addMemo()">추가</button>
+            </template>
+
+            <template v-if="">
+                <button>적용</button>
+                <button @click="cancelMemo">취소</button>
+            </template>
+        </div> 
+        <div>
+            <ul>
+                <li v-for="(memo, index) in list">메모 : {{memo}}
+                    <button @click="deleteMemo(index)">삭제</button>
+                    <button @click="updateMemo(index, memo)">수정</button>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        let data = {
+            list : ["memo1", "memo2", "memo3"], // 입력받은 내용 list에 밀어넣기 this.list.push(this.newMemo);
+            newMemo : ""
+        }
+        const { createApp } = Vue;
+        createApp({
+            data() {
+                return data
+            },
+            methods : {
+                addMemo(){
+                    if(this.newMemo.length == 0){
+                        alert("메모를 입력하세요")
+                        return;
+                    }
+                    
+                    this.list.push(this.newMemo);
+
+                    this.newMemo = "";
+                },
+                deleteMemo(targetMemo){
+                    /*
+                    //console.log(index)
+                    let idx = this.list.findIndex((memo)=>{  // findIndex() 삭제할 곳 위치 찾기. list속 데이터를 하나씩 꺼내서 memo매개변수에 전달
+                        return memo == targetMemo
+                    });
+                    
+                    if(idx != -1){ //
+                        this.list.splice(idx, 1); // splice() 배열에서 요소를 추가하거나 삭제
+                    }
+                    */
+                    this.list.splice(targetMemo, 1);
+                },
+                updateMemo(index, targetMemo){
+
+                }
+            }
+        }).mount("#app")
+    </script>
+</body>
+</html>

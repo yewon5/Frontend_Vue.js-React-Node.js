@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+<body>
+    <h1>v-if</h1>
+    <div id="app">
+        <button @click="click()">토글</button>
+        <!-- 속성(태그)별로 처리되는데 여러개의 태그를 한 번에 처리할때는 <template>태그로 그룹화 -->
+        <template v-if="visible">
+            <div>보이고1</div>
+            <div>보이고2</div>
+            <div>보이고3</div>
+        </template>
+        <template v-else>
+            <div>숨기고1</div>
+            <div>숨기고2</div>
+            <div>숨기고3</div>
+        </template>
+        <br><br>
+
+        <div id="hakjum">
+            <div>
+                점수 입력 : <input type="text" v-model="grade"/>
+            </div>
+            <div v-if="grade === 'A'">A학점입니다.</div>
+            <div v-else-if="grade === 'B'">B학점입니다.</div>
+            <div v-else-if="grade === 'C'">C학점입니다.</div>
+            <div v-else-if="grade === 'D'">D학점입니다.</div>
+            <div v-else-if="grade === 'F'">F학점입니다.</div>
+        </div>
+    </div>
+
+    <script>
+        const {createApp} = Vue;
+        createApp({
+            data(){
+                return { visible : true, grade : "" }
+            },
+            methods : {
+                click(){
+                    this.visible = !this.visible
+                }
+            }
+        }).mount("#app")
+    </script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+<body>
+    <h1>필터링</h1>
+    <div id="app">
+        <div>
+            search : <input type="text" v-model="name" />
+        </div>
+        <ul v-for="user in search()">
+            <li>{{user}}</li>
+        </ul>
+    </div>
+
+    <script>
+        let data1 = { 
+            list : ["김철수", "홍길동", "영심이", "이철수", "김철식"],
+            name : ""
+        }
+        const {createApp} = Vue;
+        createApp({
+            data(){
+                return data1;
+            },
+
+            methods : {
+                search(){
+                    if(this.name.length == 0) // 미입력시 리스트 리턴
+                        return this.list; 
+
+                    return this.list.filter((param)=>{ //filter()인자값은 함수, 리스트를 param에 전달
+                        return param.indexOf(this.name) != -1 //indexOf() 특정문자나 단어의 위치, -1이 아닐때(단어위치가 같을때)
+                    })
+                    
+                }
+            }
+        }).mount("#app")
+    </script>
+</body>
+</html>

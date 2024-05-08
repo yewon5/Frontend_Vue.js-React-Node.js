@@ -48,8 +48,8 @@
 
         const { createApp } = Vue;
         createApp({
-            data(){ 
-                return data; // data라는 값자체를 전달한 것
+            data(){  //html과 데이터 연결을 위한 내장 함수
+                return data; // key없이 data라는 값자체를 전달한 것, { data : data }로 할 경우 list랑 newUser앞에 data를 붙임
             },
             methods : {
                 addUser(){ 

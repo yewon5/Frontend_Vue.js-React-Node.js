@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+<body>
+    <h1>v-for와 v-if를 같이 사용하는 경우</h1>
+    <div id="app">
+        <!-- data1 값자체를 리턴, key값이 없기때문에 list만 적는다.
+        <template> 태그를 이용하여 그룹화하고, 조건이 맞을 때만 반복문 실행. -->
+        <template v-if="list.length != 0">
+            <ul  v-for="(user, index) in list"> 
+                <template v-if="user.age >= 20">
+                    <li>{{index}} {{user.name}}</li>
+                    <li>{{index}} {{user.age}}</li>
+                    <li>{{index}} {{user.address}}</li>
+                </template>
+            </ul>
+        </template>
+        <div v-else>
+            데이터가 없습니다.
+        </div>
+    </div>
+
+    <script>
+        let data1 = { list : [
+            {name : "홍길동", age : 10, address : "서울"},
+                {name : "임꺽정", age : 20, address : "경기"},
+                {name : "연두부", age : 30, address : "경주"}
+            ]   
+        }
+        const {createApp} = Vue;
+        createApp({
+            data(){
+                return data1;
+            }
+        }).mount("#app")
+    </script>
+</body>
+</html>

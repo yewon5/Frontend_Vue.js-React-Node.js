@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+<body>
+    <div id="app">
+        <h2>v-for = "value in 배열"</h2>
+        <div id = "list1">
+            <ul>
+                <li v-for="user in data1.list">{{user}}</li>
+            </ul>
+        </div>
+        <br><br>
+
+        <h2>v-for = "(value, key) in 배열"</h2>
+        <div id = "list2">
+            <!-- 1차원 배열은 li에 반복문. key값으로 몇번째 반복 돌고 있는지 확인. -->
+            <ul>
+                <li v-for="(user, key) in data1.list">{{key}} {{user}}</li>
+            </ul>
+        </div>
+        <br><br>
+            <!-- 2차원 배열은 ul에 반복문. :key="i" 절대 중복되지 않는 기본 key값으로 사용할때 -->
+            <ul  v-for="(user, i) in data2.list" :key="i">
+                <li>{{i}} {{user.name}}</li>
+                <li>{{i}} {{user.age}}</li>
+                <li>{{i}} {{user.address}}</li>
+            </ul>
+    </div>
+
+    <script>
+        let data1 = { list : ["user1", "user2", "user3"]}
+        let data2 = { list : [
+                {name : "홍길동", age : 10, address : "서울"},
+                {name : "임꺽정", age : 20, address : "경기"},
+                {name : "연두부", age : 30, address : "경주"}
+            ]   
+        }
+        const {createApp} = Vue;
+        createApp({
+            data(){
+                return { data1 : data1, data2 : data2 }
+            }
+        }).mount("#app")
+    </script>
+</body>
+</html>

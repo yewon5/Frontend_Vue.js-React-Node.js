@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+<body>
+    <h1>양방향 바인딩</h1>
+    <div id="app">
+        <input type="text" v-model="message"/> 
+        <!-- type="text" → v-model="message" → return {message} → 입력한 내용 = {{message}} -->
+        <div>
+            입력한 내용 = {{message}}
+        </div>
+    </div>
+
+    <script>
+        const {createApp} = Vue;
+        createApp({
+            data(){
+                return {message : "내용 없음"}
+            }
+        }).mount("#app")
+    </script>
+</body>
+</html>
