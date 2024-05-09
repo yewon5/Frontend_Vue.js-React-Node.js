@@ -58,8 +58,7 @@
                 addCount() {
                     setInterval(() => {
                         this.count++;
-                        // 각 줄의 형식에 맞게 message를 설정합니다.
-                        this.message += "message=test_" + this.count + ", count=" + this.count + "<br>";
+                        this.message += "<p>message=test_" + this.count + ", count=" + this.count + "</p>";
                     }, 1000);
                 }
             }

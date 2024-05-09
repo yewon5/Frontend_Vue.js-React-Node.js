@@ -10,14 +10,14 @@
     <h1>심플 메모장</h1>
     <div id="app">
         <div>
-            메모 입력 : <input type="text" v-model="newMemo"/>&nbsp;
-            <template v-if="">
+            메모 입력 : <input type="text" v-model="newMemo" v-on:keydown.enter="addMemo()"/>&nbsp;
+            <template v-if="state == 'add'">
                 <button v-on:click="addMemo()">추가</button>
             </template>
 
-            <template v-if="">
-                <button>적용</button>
-                <button @click="cancelMemo">취소</button>
+            <template v-if="state == 'update'">
+                <button @click="updateOk()">적용</button>
+                <button @click="cancelMemo()">취소</button>
             </template>
         </div> 
         <div>
@@ -31,10 +31,18 @@
     </div>
 
     <script>
+        const EDIT_MODE = { //객체 생성, 코드의 가독성을 높이고 중복을 줄일 수 있다.
+            UPDATE : "update",
+            ADD : "add"
+        }
+
         let data = {
             list : ["memo1", "memo2", "memo3"], // 입력받은 내용 list에 밀어넣기 this.list.push(this.newMemo);
-            newMemo : ""
+            newMemo : "",
+            state : EDIT_MODE.ADD, // 위에 생성한 객체로 불러오기
+            updateMemoIndex : -1 // 몇번째꺼를 수정할것인지 수정할 값을 받는 변수. -1(유효한 인덱스를 가지고 있지 않음)로 초기화
         }
+
         const { createApp } = Vue;
         createApp({
             data() {
@@ -51,7 +59,7 @@
 
                     this.newMemo = "";
                 },
-                deleteMemo(targetMemo){
+                deleteMemo(targetIndex){ // targetMemo
                     /*
                     //console.log(index)
                     let idx = this.list.findIndex((memo)=>{  // findIndex() 삭제할 곳 위치 찾기. list속 데이터를 하나씩 꺼내서 memo매개변수에 전달
@@ -62,10 +70,26 @@
                         this.list.splice(idx, 1); // splice() 배열에서 요소를 추가하거나 삭제
                     }
                     */
-                    this.list.splice(targetMemo, 1);
+                    this.list.splice(targetIndex, 1);
                 },
                 updateMemo(index, targetMemo){
+                    this.state = EDIT_MODE.UPDATE;
+                    this.updateMemoIndex = index; // 수정할 인덱스 넘겨주기
+                    this.newMemo = targetMemo; // 텍스트폼에 바인딩된 newMemo를 가져와서 입력된 내용이 폼에 뿌려지게
+                },
+                cancelMemo(){
+                    this.state = EDIT_MODE.ADD
+                    this.newMemo = "";
+                },
+                updateOk(){ // 적용버튼 눌렀을때 호출돼야함
+                    if(this.state = EDIT_MODE.UPDATE){ // 수정상태일때 적용되도록
+                        // 수정할 위치와 내용을 전달받아야함
+                        this.list[this.updateMemoIndex] = this.newMemo;
 
+                        this.newMemo = "";
+                        this.updateMemoIndex = -1;
+                        this.state = EDIT_MODE.ADD;
+                    }
                 }
             }
         }).mount("#app")

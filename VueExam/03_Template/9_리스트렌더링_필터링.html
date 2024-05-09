@@ -33,8 +33,8 @@
                     if(this.name.length == 0) // 미입력시 리스트 리턴
                         return this.list; 
 
-                    return this.list.filter((param)=>{ //filter()인자값은 함수, 리스트를 param에 전달
-                        return param.indexOf(this.name) != -1 //indexOf() 특정문자나 단어의 위치, -1이 아닐때(단어위치가 같을때)
+                    return this.list.filter((param)=>{ // filter()인자값은 함수, 리스트를 param에 전달
+                        return param.indexOf(this.name) != -1 // indexOf() 특정문자나 단어의 위치, -1이 아닐때(true)
                     })
                     
                 }
