@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>    
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+<body>
+    <div id="app">
+        <div>
+            <input type="text" @keydown="onKeyDown1($event)">일반 키보드 다운<br>
+            <input type="text" @keydown.enter="onKeyDown_enter($event)">엔터키 입력<br>
+            <input type="text" @keydown.ctrl.delete="onKeyDown_ctrl_delete($event)">ctrl+delete 입력<br>
+        </div>
+        <div v-html="message"></div>
+    </div>
+
+    <script>
+        const { createApp } = Vue;
+        createApp({
+            data(){
+                return { message : "", count : 0 }
+            },
+            methods : {
+                onKeyDown1(){
+                    this.count++;
+                    this.message += this.count + "=" + event.key + "<br>";
+                },
+                onKeyDown_enter(){
+                    this.message += "enter 입력<br>"
+                },
+                onKeyDown_ctrl_delete(){
+                    this.message += "ctrl+delete 입력<br>"
+                }
+            }
+        }).mount("#app");
+    </script>
+</body>
+</html>

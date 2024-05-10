@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <style>
+        .mystyle1 { border: 4px solid blue; }
+        .mystyle2 { font-size: 20px; }
+
+    </style>
+</head>
+<body>
+
+    <div id="app">
+        <div>
+            <button @click="onBorderToggle">border 토글</button>&nbsp;
+            <button @click="onFontToggle">font 토글</button><br><br>
+            <div :class="classObject">CSS 테스트입니다.</div>
+        </div>
+    </div>
+
+    <script>
+        const { createApp } = Vue;
+        createApp({
+            data(){
+                return{
+                    // CSS를 객체로 관리
+                    classObject : {
+                        mystyle1 : false,
+                        mystyle2 : false
+                    }
+                }
+            },
+            methods : {
+                onBorderToggle(){
+                    this.classObject.mystyle1 = !this.classObject.mystyle1
+                },
+                onFontToggle(){
+                    this.classObject.mystyle2 = !this.classObject.mystyle2
+                }
+            }
+        }).mount("#app");
+    </script>
+</body>
+</html>

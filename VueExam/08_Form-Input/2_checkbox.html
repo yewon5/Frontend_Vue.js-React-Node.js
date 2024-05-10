@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>    
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+<body>
+    <div id="app">
+        <div>
+            입력 값(true, false) : <input type="checkbox" v-model="msg1"/><br>
+            결과 : {{msg1}}
+        </div>
+        <hr/>
+
+        <!-- T/F말고 정해진 값으로 출력하고 싶을때 -->
+        <div>
+            입력 값(참, 거짓) : <input type="checkbox" v-model="msg2" true-value="참" false-value="거짓" /><br>
+            결과 : {{msg2}}
+        </div>
+        <hr/>
+
+        <!-- <label> 태그로 묶어주면 글자를 클릭해도 선택된다. -->
+        <div>
+            <label><input type="checkbox" value="철수" v-model="msg3"/>철수</label><br>
+            <label><input type="checkbox" value="영희" v-model="msg3"/>영희</label><br>
+            <label><input type="checkbox" value="영수" v-model="msg3"/>영수</label><br>
+            결과 : {{msg3}}
+        </div>
+        <hr/>
+
+        <div>
+            <label><input type="radio" value="철수" v-model="msg4"/>철수</label><br>
+            <label><input type="radio" value="영희" v-model="msg4"/>영희</label><br>
+            <label><input type="radio" value="영수" v-model="msg4"/>영수</label><br>
+            결과 : {{msg4}}
+        </div>
+        <hr/>
+
+        <div>
+            <div v-for="mem in memberlist">
+                <!-- v-bind:value="mem 콜론으로 축약 가능 -->
+                <label><input type="radio" :value="mem" v-model="msg5"/>{{mem}}</label><br>
+            </div>
+            결과 : {{msg5}}
+        </div>
+    </div>
+
+    <script>
+        const { createApp } = Vue;
+        createApp({
+            data(){
+                return { 
+                    msg1 : true, 
+                    msg2 : "참", 
+                    msg3 : ['영희'], 
+                    msg4 : "영수",
+                    memberlist : ['철수', '영희', '영수', '철이'],
+                    msg5 : "철이"
+
+                } // msg3는 배열로 넘겨줘야함
+            }
+        }).mount("#app");
+    </script>
+</body>
+</html>

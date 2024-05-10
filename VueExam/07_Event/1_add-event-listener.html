@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+<body>
+    <div id="app">
+        <!-- 함수 호출할때 뷰에서 만든 전역변수 $ 사용. 실제 발생한 이벤트정보를 $event가 받음-->
+        <button v-on:click="addCount($event)">실행1</button>
+        <button @click="count += 2">실행2</button>
+        <div>
+            count = {{count}}
+        </div>
+    </div>
+
+    <script>
+        const { createApp } = Vue;
+        createApp({
+            data(){
+                return{
+                    count : 1
+                }
+            },
+            methods : {
+                addCount(){
+                    this.count++
+                    console.log("이벤트 정보 : ", event)
+                }
+            }
+        }).mount("#app");
+    </script>
+</body>
+</html>

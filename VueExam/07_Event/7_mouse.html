@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+<body>
+    <div id="app">
+        <div>
+            <button @click.left="test1">실행1</button>&nbsp;
+            <button @click.left.shift="test2">실행2</button>&nbsp;
+        </div>
+
+        <div v-html="message"></div>
+    </div>
+
+    <script>
+        const { createApp } = Vue;
+        createApp({
+            data(){
+                return { message : "" }
+            },
+            methods : {
+                test1(){ 
+                    this.message += "left<br>"
+                 },
+                test2(){ 
+                    this.message += "left+shift<br>"
+                 }
+            }
+        }).mount("#app");
+    </script>
+</body>
+</html>
