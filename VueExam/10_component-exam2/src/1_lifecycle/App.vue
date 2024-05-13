@@ -1,23 +1,21 @@
 <template>
+  <h1>컴포넌트 라이프 사이클 테스트</h1>
   <div>
-    <h1>컴포넌트를 이용한 메모장</h1>
+    <button>컴포넌트 mount</button><br>
+    <button>컴포넌트 unmount</button>
   </div>
-  <hr>
-  <div id="app">
-    <list-page :list="list"></list-page>
-  </div>
+  <parent-component></parent-component>
 </template>
 
 <script>
-import ListPage from './pages/ListPage.vue'
+import ParentComponent from './ParentComponent.vue'
+
 
 export default {
   name: 'App',
   components: {
-    ListPage
-  },
-  data(){
-    return { list : ["memo1", "memo2", "memo3"] }
+    ParentComponent
+
   }
 }
 </script>
