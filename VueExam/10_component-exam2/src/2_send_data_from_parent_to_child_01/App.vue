@@ -1,10 +1,6 @@
 <template>
-  <h1>컴포넌트 라이프 사이클 테스트</h1>
-  <div>
-    <button @click="sw=true">컴포넌트 mount</button><br>
-    <button @click="sw=false">컴포넌트 unmount</button>
-  </div>
-  <parent-component v-if="sw"></parent-component>
+  <h1>부모에서 자식으로 데이터 보내기</h1>
+  <parent-component></parent-component>
 </template>
 
 <script>
@@ -14,9 +10,6 @@ export default {
   name: 'App',
   components: {
     ParentComponent
-  },
-  data() {
-    return { sw : true } 
   }
 }
 </script>

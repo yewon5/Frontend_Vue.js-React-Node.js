@@ -2,12 +2,7 @@
     <div class="parent">
         Parent 컴포넌트
         <div>
-            <p>data.count = {{count}}</p>
-            <p>props.prop = {{prop}}</p>
-        </div>
-        <div>
-            <button @click="count++"> data 변경 </button>
-            <button @click="prop++"> props 변경 </button>
+            <button @click="addMemo"> 부모에서 자식으로 데이터 보내기 </button>
         </div>
         <child-component :prop="prop"></child-component>
     </div>
@@ -15,11 +10,16 @@
 
 <script>
 import ChildComponent from './ChildComponent.vue'
+
     export default {
-    components: { ChildComponent },
+        components: { ChildComponent },
         data() {
-            return {
-                count: 0, prop: 0
+            return { list : ["memo1", "memo2"] }
+        },
+        methods : {
+            addMemo(){
+                // memo3, memo4, ...
+                
             }
         }
     }
