@@ -1,0 +1,8 @@
+{
+    "compilerOptions": {
+        "noEmitOnError": true, // 타입 오류가 있을 때 js파일 생성 안 함
+        "strictNullChecks": true, // F 엄격하게 널 값을 체크하지 않는게 디폴트값, T로 바꾼다.
+        "jsx" : "react"
+    },
+    "exclude": ["node-modules"] // ESLint가 프로젝트를 검사할 때 node_modules 디렉토리를 제외하면, 불필요한 경고를 방지할 수 있다.
+}

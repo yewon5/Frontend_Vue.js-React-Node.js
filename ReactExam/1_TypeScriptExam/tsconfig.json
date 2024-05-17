@@ -1,0 +1,6 @@
+{
+    "compilerOptions": {
+        "noEmitOnError": true, // 타입 오류가 있을 때 js파일 생성 안 함
+        "strictNullChecks": true // F 엄격하게 널 값을 체크하지 않는게 디폴트값, T로 바꾼다.
+    }
+}
