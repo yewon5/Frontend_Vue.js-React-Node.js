@@ -1,0 +1,23 @@
+.black-nav {
+    background-color: black;
+    width: 100%;
+    display: flex; /*수평정렬*/
+    color: white;
+    padding: 20px;
+    font-weight: 600;
+    font-size: 20px;
+    box-sizing: border-box; /*컨텐츠 박스로 쌓기*/
+}
+
+.list {
+    margin-top: 30px;
+    text-align: left;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.modal {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #eee;
+}

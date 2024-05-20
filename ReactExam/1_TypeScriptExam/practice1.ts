@@ -49,10 +49,10 @@ function hello():void{ // 리턴값이 없을때, 리턴하면 안될때 void키
 }
 
 function hello2():string{ // 리턴값은 문자열, 함수의 반환형을 지정할 수 있다.
-    //while(true){}
+    while(true){}
     return "hello";  
-    // Unreachable code detected.ts(7027)
-    // 무한루프라서 리턴이 절대로 실행 안 된다는 오류 문구
+    // 리턴위에 마우스를 올려놓으면 Unreachable code detected.ts(7027)
+    // 무한루프라서 리턴이 절대로 실행 안 된다는 문구
 }
 
 function hello3():never{ 

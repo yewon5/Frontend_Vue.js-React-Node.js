@@ -10,6 +10,8 @@
 # 2. 프로젝트 구성 방법
 ## (1) 직접 작성
 ## (2) CRA (Create React App)
+- npx create-react-app 프로젝트명 (타입스크립트 없이 실행)
+- npx create-react-app 프로젝트명 --template typescript
 ## (3) Online Code Tool (test용)
     - CodeSandbox
 
@@ -100,3 +102,23 @@
 
 [ ] webpack-dev-server
 - 개발 서버로, 개발 중인 애플리케이션을 로컬 서버에 호스팅하여 빠르고 쉽게 개발할 수 있도록 도와주는 역할
+
+# 5. 기본 키워드
+### (1) virtual DOM
+- 화면에 렌더링되지 않고, 메모리에만 존재하는 DOM (Real DOM의 복사본)
+- DOM 변경사항 : virtual DOM -> Real DOM
+
+### (2) ReactElement
+- virtual DOM에 HTML을 그려줄 수 있는 도구
+- React.createElement(type, [props], [...Child]);
+
+### (3) JSX
+- Javascript + xml
+- 코드를 줄이고 View를 직관적으로 상상할 수 있게 도움을 준다.
+- 주의할점 및 특징
+    - Babel을 통해서 JSX -> JS로 Trenspiling이 된다.
+    - 시작과 끝 태그가 반드시 한쌍으로 묶여야 한다.
+    - 반드시 하나의 요소로 표현해야 한다.
+    - 중괄호를 이용해서 JS표현식을 사용할 수 있다.
+
+### (4) ReactComponent
