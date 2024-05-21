@@ -3,13 +3,17 @@ import ReactDOM from 'react-dom/client';
 //mport './index.css';
 //import App from './App';
 //import reportWebVitals from './reportWebVitals';
-import Counter from './Counter'
+
+//import Counter from './Counter'
+import FuncCounter from './FuncCounter';
+
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
-root.render(
-  <Counter></Counter> //메인페이지가 Counter.tsx다
+root.render( //메인페이지
+  //<Counter title="이것은 Counter입니다." num={0}></Counter>
+  <FuncCounter title="이것은 Counter입니다." num={0}></FuncCounter> 
 );
 
 // If you want to start measuring performance in your app, pass a function

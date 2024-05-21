@@ -122,3 +122,37 @@
     - 중괄호를 이용해서 JS표현식을 사용할 수 있다.
 
 ### (4) ReactComponent
+
+# 6. ReactComponent
+## (1) 기본 동작
+### 1) props
+- 외부에서 주입되는 데이터 (부모 -> 자식)
+- 수정할 수 없다. (변경하고 싶을 땐 부모 값을 변경해야함 자식은 변경 불가)
+- 함수의 인자와 비슷하다.
+
+### 2) state
+- 컴포넌트안에서 생성되며, 내부에서만 사용가능한 객체
+- 수정 가능
+- 함수내의 변수와 비슷
+
+### 3) Hook API
+Hook는 컴포넌트 외부로 렌더로직을 분리하기 위한 수단으로 로직의 재사용성을 높이며 Function Component 적합하다.
+- useState
+    - [상태값, 상태변경함수] = useState(초기값) 
+    - 상태값에는 가장 최신의 값이 저장된다.
+- useEffect
+    - useEffect(함수, [의존성]) //의존성 : []배열안에 있는 데이터가 변경되었을때만 함수를 실행함(최초 1회는 실행됨)
+    - 호출하면 결과값을 함수로 받음
+    - 함수를 리턴해야함 (clean-up)
+        - 모든 Render마다 -> 의존성 체크 -> clean-up(의존성 체크 후 데이터가 변경됐을때) -> useEffect 실행
+    - LifeCycle과 연관 (useEffect를 통해서 LifeCycle 구현)
+        - Class Component LifeCycle
+        - mounting　　constructor -> render -> componentDidMount
+        - updating　　　　　　　　　  render -> componentDidUPdate
+        - unmounting　　　　　　　　　　　　    componentWillUnmount
+        - Function Component LifeCycle
+        - mounting　　Run Function -> useEffect 실행
+        - updating　　Run Function -> useEffect 실행 //최초 1회는 실행
+        - unmounting　　　　　　　　   clean-up 실행
+- useMemo
+- useCallback

@@ -2,7 +2,7 @@
 import logo from './logo.svg';
 import './mystyle.css';
 import './App.css';
-import {useState} from "react";
+import {useState} from "react"; //가져와야 state사용이 가능하다.
 
 function App() {
   //import {useState} from "react"; // 변수대신 state 함수 사용
