@@ -141,7 +141,7 @@ Hook는 컴포넌트 외부로 렌더로직을 분리하기 위한 수단으로 
     - [상태값, 상태변경함수] = useState(초기값) 
     - 상태값에는 가장 최신의 값이 저장된다.
 - useEffect
-    - useEffect(함수, [의존성]) //의존성 : []배열안에 있는 데이터가 변경되었을때만 함수를 실행함(최초 1회는 실행됨)
+    - useEffect(함수, [의존성]) //의존성 : []배열안에 있는 데이터가 변경되었을때만 함수를 실행함(무조건 최초 1회는 실행됨)
     - 호출하면 결과값을 함수로 받음
     - 함수를 리턴해야함 (clean-up)
         - 모든 Render마다 -> 의존성 체크 -> clean-up(의존성 체크 후 데이터가 변경됐을때) -> useEffect 실행
@@ -155,4 +155,8 @@ Hook는 컴포넌트 외부로 렌더로직을 분리하기 위한 수단으로 
         - updating　　Run Function -> useEffect 실행 //최초 1회는 실행
         - unmounting　　　　　　　　   clean-up 실행
 - useMemo
+    - 리턴하는 값은 값 자체이다. 이 값을 Memoization 한다
 - useCallback
+    - 리턴하는 값은 함수 자체이다. 이것을 Memoization 한다.
+- useReducer p.184
+    - const [state, dispatch] = useReducer(함수, 초기값)
