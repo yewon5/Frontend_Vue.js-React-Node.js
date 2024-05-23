@@ -1,5 +1,7 @@
 import * as React from 'react';
 
+//햄버거 주문 프로그램
+
 type Action = {type : 'HAMBURGER'} | {type : 'POTATO'} | {type : 'COKE'};
 
 const priceReducer  = (price:number, action:Action):number => {
@@ -18,7 +20,7 @@ const priceReducer  = (price:number, action:Action):number => {
 const App2:React.FC = () => { //:React.FC 표시로 함수형 컴포넌트라는 것을 명확히 함
     const[price, priceDispatcher] = React.useReducer(priceReducer, 0);
 
-    const onHamburger = () => {priceDispatcher({type : 'HAMBURGER'})} //타입을 priceReducer action에 전달
+    const onHamburger = () => {priceDispatcher({type : 'HAMBURGER'})} //타입을 priceReducer함수의 action에 전달
     const onPotato = () => {priceDispatcher({type : 'POTATO'})}
     const onCoke = () => {priceDispatcher({type : 'COKE'})}
 
