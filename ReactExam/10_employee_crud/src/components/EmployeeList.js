@@ -1,9 +1,11 @@
 import axios from "../api/axios.js";
 import { useEffect, useState } from 'react';
 
-const EmployeeList = () => {
+const EmployeeList = ({employees, deleteEmployee, handleUpdateClick}) => { //리액트는 props로 부모자식 서로 데이터를 주고 받음
+    /*
+    코드 따로 분리
     //서버로부터 받아온 데이터를 저장하기 위한 변수
-    const [employees, setEmployees] = useState([]);
+    //const [employees, setEmployees] = useState([]);
 
     useEffect(()=>{
         fetchEmployee();
@@ -33,6 +35,7 @@ const EmployeeList = () => {
             console.log('Delete err : ', err);
         }
     }
+    */
 
     return(
         <div>
@@ -43,16 +46,20 @@ const EmployeeList = () => {
                     <th>ID</th>
                     <th>Name</th>
                     <th>Email</th>
+                    <th>-</th>
                 </tr>
                 </thead>
                 <tbody>
                     {
-                        employees.map((emp)=>(
+                        employees.map((emp)=>( //employees서버로부터 데이터를 받은 객체. 
                             <tr key={emp.id}>
                                 <td>{emp.id}</td>
                                 <td>{emp.name}</td>
                                 <td>{emp.email}</td>
-                                <td><button onClick={() => handleDelete(emp.id)}>삭제</button></td>
+                                <td>
+                                    <button onClick={() => {deleteEmployee(emp.id)}}>삭제</button>
+                                    <button onClick={() => {handleUpdateClick(emp)}}>수정</button>
+                                </td>
                             </tr>
                         ))
                     }
