@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+
+<!-- jQuery -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+<!-- Bootstrap CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<link rel="stylesheet" href="main.css">
+ 
+<title>AcornErp</title>
+</head>
+<body>
+    <div id="Frame">
+        <div id="header_Frame">
+            <div>
+                <header>
+                
+					<!-- 상단 메뉴바 -->
+					<nav class="py-2 bg-light border-bottom">
+						<div class="container d-flex justify-content-between align-items-center">
+							<ul class="nav">
+								<li class="nav-item"><a href="#" class="nav-link link-dark px-2 active" aria-current="page">AcornErp</a></li>
+							</ul>
+							<ul class="nav">
+								<li class="nav-item"><a href="#" class="nav-link link-dark px-2" style="font-size: 14px;">공지사항</a></li>
+								<li class="nav-item"><a href="#" class="nav-link link-dark px-2" style="font-size: 14px;">환경설정</a></li>
+								<li class="nav-item">&nbsp;&nbsp;&nbsp;&nbsp;</li>
+								<li class="nav-item"><a href="#" class="nav-link link-dark px-2" style="font-size: 14px;">로그인</a></li>
+								<li class="nav-item"><a href="#" class="nav-link link-dark px-2" style="font-size: 14px;">회원가입</a></li>
+							</ul>
+						</div>
+					</nav> 
+					<!-- 상단 메뉴바 끝 -->
+					
+                </header>
+            </div>
+        </div> <!-- id="header_Frame" 끝 -->
+        <div id="body_Frame">
+            <div class="body_flow">
+            
+				<!-- 사이드 메뉴바 시작 -->
+                <div class="flex-shrink-0 p-3 bg-white" style="width: 200px;">
+                    <a href="main.html" class="d-flex align-items-center pb-3 mb-3 link-dark text-decoration-none border-bottom">
+                        <svg class="bi me-2" width="30" height="24"><use xlink:href="#bootstrap"></use></svg>
+                        <span class="fs-5 fw-semibold">AcornErp</span>
+                    </a>
+                    <ul class="list-unstyled ps-0">
+                        <li class="mb-1">
+                            <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#member-collapse" aria-expanded="false">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-down" viewBox="0 0 16 16">
+                                    <path d="M3.204 5h9.592L8 10.481zm-.753.659 4.796 5.48a1 1 0 0 0 1.506 0l4.796-5.48c.566-.647.106-1.659-.753-1.659H3.204a1 1 0 0 0-.753 1.659"/>
+                                </svg>
+                                회원
+                            </button>
+                            <div class="collapse" id="member-collapse" style="">
+                                <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                                    <li><a href="#" class="link-dark rounded">Overview</a></li>
+                                    <li><a href="#" class="link-dark rounded">Updates</a></li>
+                                    <li><a href="#" class="link-dark rounded">Reports</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="mb-1">
+                            <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#orders-collapse" aria-expanded="false">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-down" viewBox="0 0 16 16">
+                                    <path d="M3.204 5h9.592L8 10.481zm-.753.659 4.796 5.48a1 1 0 0 0 1.506 0l4.796-5.48c.566-.647.106-1.659-.753-1.659H3.204a1 1 0 0 0-.753 1.659"/>
+                                </svg>
+                                판매
+                            </button>
+                            <div class="collapse show" id="orders-collapse">
+                                <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+									<li><a href="order.html" class="link-dark rounded" style="color: #007BFF !important; margin-right: 10px; font-weight: bold;">주문 관리</a></li>
+                                    <li><a href="product.html" class="link-dark rounded">상품 관리</a></li>
+                                    <li><a href="inventory.html" class="link-dark rounded">상품 재고 관리</a></li>
+                                </ul>
+                            </div>
+                        </li>
+						<li class="mb-1">
+							<button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#stock-collapse" aria-expanded="false">
+								<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-down" viewBox="0 0 16 16">
+							    	<path d="M3.204 5h9.592L8 10.481zm-.753.659 4.796 5.48a1 1 0 0 0 1.506 0l4.796-5.48c.566-.647.106-1.659-.753-1.659H3.204a1 1 0 0 0-.753 1.659"/>
+								</svg>
+					          	재고
+					        </button>
+					        <div class="collapse" id="stock-collapse">
+					          	<ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+						            <li><a href="#" class="link-dark rounded">New</a></li>
+						            <li><a href="#" class="link-dark rounded">Processed</a></li>
+						            <li><a href="#" class="link-dark rounded">Shipped</a></li>
+						            <li><a href="#" class="link-dark rounded">Returned</a></li>
+								</ul>
+							</div>
+						</li>
+						<li class="mb-1">
+						    <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#reservation-collapse-1" aria-expanded="false">
+						        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-down" viewBox="0 0 16 16">
+						            <path d="M3.204 5h9.592L8 10.481zm-.753.659 4.796 5.48a1 1 0 0 0 1.506 0l4.796-5.48c.566-.647.106-1.659-.753-1.659H3.204a1 1 0 0 0-.753 1.659"/>
+						        </svg>
+						        예약
+						    </button>
+						    <div class="collapse" id="reservation-collapse-1">
+						        <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+						            <li><a href="#" class="link-dark rounded">New...</a></li>
+						            <li><a href="#" class="link-dark rounded">Profile</a></li>
+						            <li><a href="#" class="link-dark rounded">Settings</a></li>
+						            <li><a href="#" class="link-dark rounded">Sign out</a></li>
+						        </ul>
+						    </div>
+						</li>
+						<li class="mb-1">
+						    <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#account-collapse-2" aria-expanded="false">
+						        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-down" viewBox="0 0 16 16">
+						            <path d="M3.204 5h9.592L8 10.481zm-.753.659 4.796 5.48a1 1 0 0 0 1.506 0l4.796-5.48c.566-.647.106-1.659-.753-1.659H3.204a1 1 0 0 0-.753 1.659"/>
+						        </svg>
+						        매입매출
+						    </button>
+						    <div class="collapse" id="account-collapse-2">
+						        <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+						            <li><a href="#" class="link-dark rounded">New...</a></li>
+						            <li><a href="#" class="link-dark rounded">Profile</a></li>
+						            <li><a href="#" class="link-dark rounded">Settings</a></li>
+						            <li><a href="#" class="link-dark rounded">Sign out</a></li>
+						        </ul>
+						    </div>
+						</li>
+                    </ul>
+                </div>
+				<!-- 사이드 메뉴바 끝-->
+				
+                <div class="right">
+                    <div class="right-up">
+                        <input type="button" class="btn btn-outline-primary" value="주문서 조회" onclick="window.location.href = 'order.html';"/>
+                        <input type="button" class="btn btn-primary" value="반품 및 교환 관리"/>
+                    </div>
+                    <!-- 테이블 상단 버튼 시작-->	
+					<div style="margin-bottom: 10px; display: flex; justify-content: space-between;">
+					    <!-- 달력과 검색창 -->
+					    <div class="calendar-search">
+					        <form>
+					            <input type="date">
+					            <input type="date">
+					            <input type="submit" value="조회" class="btn btn-primary btn-sm">
+							</form>
+							<input type="search" id="search-box" class="form-control bg-light border-0" placeholder="검색" aria-label="검색">
+						</div>
+		    
+		    				<!-- 등록/수정/삭제 버튼 -->
+							<div class="edit-buttons">
+								<input type="button" class="btn btn-primary btn-sm" value="등록" onclick="addRow()">
+								<button type="button" class="btn btn-primary btn-sm" onclick="updateRow()">수정</button>
+								<button type="button" class="btn btn-primary btn-sm" onclick="deleteRow()">삭제</button>
+							</div>
+					</div>
+                    <!-- 테이블 상단 버튼 끝-->	
+                    <div class="right-mid">
+						<section id="sec">
+							<table class="table table-hover" style="word-break: break-all;">
+								<thead>
+									<tr>
+										<th scope="col"><input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"></th>
+										<th scope="col">번호</th>
+										<th scope="col">주문번호</th>
+										<th scope="col">상태구분</th>
+										<th scope="col">상품명</th>
+										<th scope="col">이름</th>
+										<th scope="col">판매일시</th>
+										<th scope="col">연락처</th>
+										<th scope="col">수량</th>
+										<th scope="col">환불금액</th>
+										<th scope="col">사유</th>
+										<th scope="col">처리상태</th>
+									</tr>
+								</thead>
+								<tbody class="table-group-divider">
+									<tr>
+										<th scope="row"><input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"></th>										
+										<th scope="row">2</th>
+										<td>15959</td>
+										<td>환불</td>
+										<td>초코케이크 1호</td>
+										<td>김초코</td>
+										<td>2024-02-14 11:26</td>
+										<td>010-1234-5678</td>
+										<td>1개</td>
+										<td>33,000원</td>
+										<td>이물질이 들어가 있어서 환불 요청합니다.</td>
+										<td>환불완료</td>									
+									</tr>
+									<tr>
+										<th scope="row"><input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"></th>										
+										<th scope="row">1</th>
+										<td>15944</td>
+										<td>교환</td>
+										<td>연유브레드</td>
+										<td>김연유</td>
+										<td>2024-02-14 10:26</td>
+										<td>010-1234-5678</td>
+										<td>2개</td>
+										<td>6,000원</td>
+										<td>재고 부족으로 인한 교환</td>
+										<td>교환완료</td>										
+									</tr>
+								</tbody>
+							</table>
+						<!-- 테이블 하단 버튼 시작-->	
+						<div style="text-align:right; margin-right:20px;">
+                    		<button type="button" class="btn btn-primary btn-sm">
+                    		<!-- 엑셀 아이콘 -->
+                    		<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-filetype-xls" viewBox="0 0 16 16">
+  							<path fill-rule="evenodd" d="M14 4.5V14a2 2 0 0 1-2 2h-1v-1h1a1 1 0 0 0 1-1V4.5h-2A1.5 1.5 0 0 1 9.5 3V1H4a1 1 0 0 0-1 1v9H2V2a2 2 0 0 1 2-2h5.5zM6.472 15.29a1.2 1.2 0 0 1-.111-.449h.765a.58.58 0 0 0 .254.384q.106.073.25.114.143.041.319.041.246 0 .413-.07a.56.56 0 0 0 .255-.193.5.5 0 0 0 .085-.29.39.39 0 0 0-.153-.326q-.152-.12-.462-.193l-.619-.143a1.7 1.7 0 0 1-.539-.214 1 1 0 0 1-.351-.367 1.1 1.1 0 0 1-.123-.524q0-.366.19-.639.19-.272.527-.422.338-.15.777-.149.457 0 .78.152.324.153.5.41.18.255.2.566h-.75a.56.56 0 0 0-.12-.258.6.6 0 0 0-.247-.181.9.9 0 0 0-.369-.068q-.325 0-.513.152a.47.47 0 0 0-.184.384q0 .18.143.3a1 1 0 0 0 .405.175l.62.143q.326.075.566.211a1 1 0 0 1 .375.358q.135.222.135.56 0 .37-.188.656a1.2 1.2 0 0 1-.539.439q-.351.158-.858.158-.381 0-.665-.09a1.4 1.4 0 0 1-.478-.252 1.1 1.1 0 0 1-.29-.375m-2.945-3.358h-.893L1.81 13.37h-.036l-.832-1.438h-.93l1.227 1.983L0 15.931h.861l.853-1.415h.035l.85 1.415h.908L2.253 13.94zm2.727 3.325H4.557v-3.325h-.79v4h2.487z"/>
+							</svg> 엑셀 다운로드</button>
+							
+                    		<button type="button" class="btn btn-primary btn-sm">
+                    		<!-- 인쇄 아이콘 -->
+                    		<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-printer" viewBox="0 0 16 16">
+  							<path d="M2.5 8a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1"/>
+  							<path d="M5 1a2 2 0 0 0-2 2v2H2a2 2 0 0 0-2 2v3a2 2 0 0 0 2 2h1v1a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2v-1h1a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-1V3a2 2 0 0 0-2-2zM4 3a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v2H4zm1 5a2 2 0 0 0-2 2v1H2a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-1v-1a2 2 0 0 0-2-2zm7 2v3a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1"/>
+							</svg> 인쇄</button>
+                    	</div>
+                     	<!-- 테이블 하단 버튼 끝 -->
+						</section>
+						
+						<!-- 페이징 시작 -->
+						<nav aria-label="Page navigation example" style="margin-top: 50px;">
+							<ul class="pagination justify-content-center">
+								<li class="page-item"><a class="page-link" href="#" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></li>
+								<li class="page-item"><a class="page-link" href="#">1</a></li>
+								<li class="page-item"><a class="page-link" href="#">2</a></li>
+								<li class="page-item"><a class="page-link" href="#">3</a></li>
+								<li class="page-item"><a class="page-link" href="#" aria-label="Next"><span aria-hidden="true">&raquo;</span></a></li>
+							</ul>
+						</nav>
+						<!-- 페이징 시작 -->
+						
+					</div> <!-- class="right-mid" 끝 -->
+                </div> <!-- class="right" 끝 -->
+            </div>
+        </div> <!-- id="body_Frame" 끝 -->
+        <div id="footer_Frame">
+            <div>
+                <footer>
+                    최하단
+                </footer>
+            </div>
+        </div>
+    </div> <!-- id="Frame" 끝 -->
+    
+<!-- 체크박스 전체선택 -->
+<script>
+    // 제일 상단의 체크박스 요소를 가져옵니다.
+    const masterCheckbox = document.getElementById('flexCheckDefault');
+
+    // 제일 상단의 체크박스가 변경될 때 이벤트를 추가합니다.
+    masterCheckbox.addEventListener('change', function() {
+        // 모든 하위 체크박스 요소들을 가져옵니다.
+        const checkboxes = document.querySelectorAll('.table tbody .form-check-input');
+
+        // 제일 상단의 체크박스의 상태에 따라 모든 하위 체크박스를 선택 또는 해제합니다.
+        checkboxes.forEach(checkbox => {
+            checkbox.checked = masterCheckbox.checked;
+        });
+    });
+</script>
+
+<!-- 검색창 -->
+<script>
+    // DOMContentLoaded 이벤트가 발생하면, 콜백함수 실행
+    document.addEventListener('DOMContentLoaded', function() {
+        // 검색창 element를 id값으로 가져오기
+        const payrollSearch = document.querySelector('#search-box');
+        // 테이블의 tbody element를 id값으로 가져오기
+        const payrollTable = document.querySelector('#sec tbody');
+
+        // 검색창 element에 keyup 이벤트 세팅. 글자 입력 시 마다 발생.
+        payrollSearch.addEventListener('keyup', function() {
+            // 사용자가 입력한 검색어의 value값을 가져와 소문자로 변경하여 filterValue에 저장
+            const filterValue = payrollSearch.value.toLowerCase();
+            // 현재 tbody안에 있는 모든 tr element를 가져와 rows에 저장
+            const rows = payrollTable.querySelectorAll('tr');
+
+            //tr들 for문으로 순회
+            for (var i = 0; i < rows.length; i++) {
+                // 현재 순회중인 tr의 textContent를 소문자로 변경하여 rowText에 저장
+                var rowText = rows[i].textContent.toLowerCase();
+                // rowText가 filterValue를 포함하면, 해당 tr은 보여지게 하고, 그렇지 않으면 숨긴다.
+                if (rowText.includes(filterValue)) {
+                    rows[i].style.display = '';
+                } else {
+                    rows[i].style.display = 'none';
+                }
+            }
+        });
+    });
+</script>
+</body>
+</html>

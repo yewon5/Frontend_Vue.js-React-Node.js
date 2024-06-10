@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<!-- jQuery -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+<!-- Bootstrap CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<link rel="stylesheet" href="main.css">
+ 
+<title>AcornErp</title>
+</head>
+<body>
+    <div id="Frame">
+        <div id="header_Frame">
+            <div>
+				<header>
+
+					<!-- 상단 메뉴바 -->
+					<nav class="py-2 bg-light border-bottom">
+						<div class="container d-flex justify-content-between align-items-center">
+							<ul class="nav">
+								<li class="nav-item"><a href="#" class="nav-link link-dark px-2 active" aria-current="page">AcornErp</a></li>
+							</ul>
+							<ul class="nav">
+								<li class="nav-item"><a href="#" class="nav-link link-dark px-2" style="font-size: 14px;">공지사항</a></li>
+								<li class="nav-item"><a href="#" class="nav-link link-dark px-2" style="font-size: 14px;">환경설정</a></li>
+								<li class="nav-item">&nbsp;&nbsp;&nbsp;&nbsp;</li>
+								<li class="nav-item"><a href="#" class="nav-link link-dark px-2" style="font-size: 14px;">로그인</a></li>
+								<li class="nav-item"><a href="#" class="nav-link link-dark px-2" style="font-size: 14px;">회원가입</a></li>
+							</ul>
+						</div>
+					</nav>
+					<!-- 상단 메뉴바 끝 -->
+                    
+                </header>
+            </div>
+        </div> <!-- id="header_Frame" 끝 -->
+        <div id="body_Frame">
+            <div class="body_flow">
+            
+                <!-- 사이드 메뉴바 -->
+                <div class="flex-shrink-0 p-3 bg-white" style="width: 200px;">
+                    <a href="main.html" class="d-flex align-items-center pb-3 mb-3 link-dark text-decoration-none border-bottom">
+                        <svg class="bi me-2" width="30" height="24"><use xlink:href="#bootstrap"></use></svg>
+                        <span class="fs-5 fw-semibold">AcornErp</span>
+                    </a>
+                    <ul class="list-unstyled ps-0">
+                        <li class="mb-1">
+                            <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#member-collapse" aria-expanded="false">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-down" viewBox="0 0 16 16">
+                                    <path d="M3.204 5h9.592L8 10.481zm-.753.659 4.796 5.48a1 1 0 0 0 1.506 0l4.796-5.48c.566-.647.106-1.659-.753-1.659H3.204a1 1 0 0 0-.753 1.659"/>
+                                </svg>
+                                회원
+                            </button>
+                            <div class="collapse" id="member-collapse" style="">
+                                <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                                    <li><a href="#" class="link-dark rounded">Overview</a></li>
+                                    <li><a href="#" class="link-dark rounded">Updates</a></li>
+                                    <li><a href="#" class="link-dark rounded">Reports</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="mb-1">
+                            <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#orders-collapse" aria-expanded="false">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-down" viewBox="0 0 16 16">
+                                    <path d="M3.204 5h9.592L8 10.481zm-.753.659 4.796 5.48a1 1 0 0 0 1.506 0l4.796-5.48c.566-.647.106-1.659-.753-1.659H3.204a1 1 0 0 0-.753 1.659"/>
+                                </svg>
+                                판매
+                            </button>
+                            <div class="collapse" id="orders-collapse">
+                                <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+									<li><a href="order.html" class="link-dark rounded">주문 관리</a></li>
+                                    <li><a href="product.html" class="link-dark rounded">상품 관리</a></li>
+                                    <li><a href="inventory.html" class="link-dark rounded">상품 재고 관리</a></li>
+                                </ul>
+                            </div>
+                        </li>
+						<li class="mb-1">
+							<button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#stock-collapse" aria-expanded="false">
+								<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-down" viewBox="0 0 16 16">
+							    	<path d="M3.204 5h9.592L8 10.481zm-.753.659 4.796 5.48a1 1 0 0 0 1.506 0l4.796-5.48c.566-.647.106-1.659-.753-1.659H3.204a1 1 0 0 0-.753 1.659"/>
+								</svg>
+					          	재고
+					        </button>
+					        <div class="collapse" id="stock-collapse">
+					          	<ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+						            <li><a href="#" class="link-dark rounded">New</a></li>
+						            <li><a href="#" class="link-dark rounded">Processed</a></li>
+						            <li><a href="#" class="link-dark rounded">Shipped</a></li>
+						            <li><a href="#" class="link-dark rounded">Returned</a></li>
+								</ul>
+							</div>
+						</li>
+						<li class="mb-1">
+						    <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#reservation-collapse-1" aria-expanded="false">
+						        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-down" viewBox="0 0 16 16">
+						            <path d="M3.204 5h9.592L8 10.481zm-.753.659 4.796 5.48a1 1 0 0 0 1.506 0l4.796-5.48c.566-.647.106-1.659-.753-1.659H3.204a1 1 0 0 0-.753 1.659"/>
+						        </svg>
+						        예약
+						    </button>
+						    <div class="collapse" id="reservation-collapse-1">
+						        <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+						            <li><a href="#" class="link-dark rounded">New...</a></li>
+						            <li><a href="#" class="link-dark rounded">Profile</a></li>
+						            <li><a href="#" class="link-dark rounded">Settings</a></li>
+						            <li><a href="#" class="link-dark rounded">Sign out</a></li>
+						        </ul>
+						    </div>
+						</li>
+						<li class="mb-1">
+						    <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#account-collapse-2" aria-expanded="false">
+						        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-down" viewBox="0 0 16 16">
+						            <path d="M3.204 5h9.592L8 10.481zm-.753.659 4.796 5.48a1 1 0 0 0 1.506 0l4.796-5.48c.566-.647.106-1.659-.753-1.659H3.204a1 1 0 0 0-.753 1.659"/>
+						        </svg>
+						        매입매출
+						    </button>
+						    <div class="collapse" id="account-collapse-2">
+						        <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+						            <li><a href="#" class="link-dark rounded">New...</a></li>
+						            <li><a href="#" class="link-dark rounded">Profile</a></li>
+						            <li><a href="#" class="link-dark rounded">Settings</a></li>
+						            <li><a href="#" class="link-dark rounded">Sign out</a></li>
+						        </ul>
+						    </div>
+						</li>
+                    </ul>
+                </div>
+                <!-- 사이드 메뉴바 -->
+                
+                <div class="right">
+                    <div class="right-up">
+                        <input type="button" class="btn btn-outline-primary" value="소상"/>
+                        <input type="button" class="btn btn-outline-primary" value="공인"/>
+                    </div>
+                    <div class="right-mid">
+                        <section id="sec">			
+                           <h1>ERP 메인페이지입니다.</h1>
+                           <h1>로그인해주세요.</h1>
+                           <h1>공지사항입니다.</h1>
+                        </section>
+					</div> <!-- class="right-mid" 끝 -->
+                </div> <!-- class="right" 끝 -->
+            </div>
+        </div> <!-- id="body_Frame" 끝 -->
+        <div id="footer_Frame">
+            <div>
+                <footer>
+                    최하단
+                </footer>
+            </div>
+        </div>
+    </div> <!-- id="Frame" 끝 -->
+</body>
+</html>
