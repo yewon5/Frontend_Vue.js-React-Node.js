@@ -1,8 +1,16 @@
 import express from 'express'; //package.json에서 "type":"module" 추가
 import { initialize, close, oracledb } from './config/oracle.js';
+import itemRoutes from './routes/itemRoutes.js'
 
 const app = express();
 app.set('port', process.env.PORT || 9999);
+
+
+//JSON 데이터를 전달받을 때 이를 파싱하기 위해 사용되는 미들웨어 
+app.use(express.json())
+//미들 웨어 준비
+app.use("/api/items", itemRoutes)
+
 
 //initialize가 promise 객체라서 cath 사용 가능
 initialize().then(() => {
@@ -34,12 +42,3 @@ app.get("/", (req, res)=>{
     `
     res.send(main);
 })
-
-//모든 데이터를 조회해서 페이지에 보여줌. 함수로 처리
-const getAllItem = async(req, res) => {
-    let connection = await oracledb.getConnection();
-    let reslut = await connection.execute('select * from items')
-
-    console.log(reslut.rows)
-}
-app.get("/api/items", getAllItem) //getAllItem 콜백함수를 준비해야해서 괄호 붙이면 안 됨.
